@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+
+import { useEffect, useState } from 'react';
 import './App.css';
+import ProgressBar from './component/progressBar'
+import ListItem from './component/listItem'
+import InputField from './component/InputField'
 
 function App() {
+  const [list, setList] = useState([])
+  const [percentage, setPercentage] = useState(0)
+
+
+  useEffect(() => {
+
+    console.log('list :>>>', list)
+
+  }, [list])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <div id="wrapper">
+        <header className="App-header">
+          <h1 className='text-heavy'>Todo List</h1>
+          <small className='text-light'>add things to do</small>
+        </header>    
+
+        <ProgressBar percentage={percentage} setPercentage={setPercentage}></ProgressBar>
+
+        <ListItem list={list} ></ListItem>
+
+        <InputField list={list} setList={setList}></InputField>
+      </div>    
+
     </div>
   );
 }
