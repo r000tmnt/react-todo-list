@@ -13,6 +13,7 @@ button{
 }
 
 #wrapper{
+  width: 25%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -72,11 +73,14 @@ button{
 
 .inputWrapper{
   height: 25px;
+  margin: 15% 0 5% 0;
 }
 
 #list{
   list-style: none;
-  padding: 0;
+  padding: 2% 0;
+  margin: 0 0 2% 0;
+  border-bottom: 2px solid #CED7E6;
 }
 
 li{
@@ -93,6 +97,7 @@ li > span{
 li > div{
   /* padding-top: 3px; */
   color: #9FA7C1;
+  padding-top: 6px;
 }
 
 .checkTodo{
@@ -118,4 +123,25 @@ li > div{
   border-radius: 25px;
   background-color: #98AEF6;
   height: 100%;
+  transition: all;
+}
+
+.toggle{
+  background-color: white;
+  border-radius: 50px;
+  width: 10%;
+  margin-left: 2%;
+  padding: 1%;
+}
+
+.switch{
+  background-color: #CDD2F6;
+  border-radius: 50%;
+  width: 40%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.justifyEnd{
+  justify-content: end;
 }

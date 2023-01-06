@@ -14,9 +14,13 @@ function InputField ({ list, setList }){
     }
 
     return(
-        <div className="flex inputWrapper">
-            <input className="newTodo" value={temp} onChange={(v) => { setTemp(v.target.value); }} type="text"></input>
-            <button className="addBtn radius text-white" onClick={() => { alterList(temp) }}>+</button>
+        <div className="inputWrapper">
+            <span className='text-middle'>Add to list</span>
+
+            <div className="flex">
+                <input className="newTodo radius" value={temp} onChange={(v) => { setTemp(v.target.value); }} type="text"></input>
+                <button className="addBtn radius text-white" onClick={() => { alterList(temp) }}>+</button>
+            </div>
         </div>
     )
 }
