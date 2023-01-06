@@ -1,15 +1,20 @@
-function ListItem({ list }){
+function ListItem({ list, setList }){
 
-    console.log('ListItem :>>>', list)
+    const checkTodo = (index) => {
+        list[index].done = !list[index].done
+
+        setList([ ...list ])
+    }
 
     return(
         <ul id="list">
             {
                 (list.length)?
-                list.map((item) => { 
-                    return<li>
-                            <input type="checkbox"></input>
-                            <span>{item}</span>
+                list.map((item, index) => { 
+                    return<li className="flex radius" key={index}>
+                            <span className=""></span>
+                            <input className="checkTodo" type="checkbox" onChange={() => checkTodo(index)}></input>
+                            <div className={(item?.done)? 'done': ''}>{item.name}</div>
                             <button className="close">X</button>
                         </li>
                 })  :

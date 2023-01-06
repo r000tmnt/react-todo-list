@@ -2,9 +2,9 @@ function ProgressBar({ percentage }){
 
     return(
         <div className="flex" >
-            <span>{ percentage || 0 }%</span>
+            <span className="text-middle">{ percentage || 0 }%</span>
             <div className="bar">
-                <div className="progress"></div>
+                <div className="progress" style={{width: `${percentage}%`}}></div>
             </div>
         </div>
     )

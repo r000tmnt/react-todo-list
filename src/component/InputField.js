@@ -8,7 +8,9 @@ function InputField ({ list, setList }){
 
         console.log('newTodo :>>>', newTodo)
 
-        setList([ ...list, newTodo ])
+        setList([ ...list, { name: newTodo, done: false, time: new Date().getTime() } ])
+
+        setTemp('')
     }
 
     return(
