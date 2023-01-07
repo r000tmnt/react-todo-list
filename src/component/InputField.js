@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function InputField ({ list, setList, listRef }){
+function InputField ({ list, setList, listRef, active }){
 
     //輸入框內容的臨時站點
     const [temp, setTemp] = useState('')
@@ -12,8 +12,26 @@ function InputField ({ list, setList, listRef }){
 
         console.log('newTodo :>>>', newTodo)
 
-        //先加入原有的陣列，再放入新的事項
-        setList([ ...list, { name: newTodo, done: false, time: new Date().getTime() } ])
+        //如果有改變排序
+        if(active){
+
+            //找出已完成的事項
+            let checked = list.filter((item) => item.done == true)
+
+            //找出未完成的事項
+            let unCheck = list.filter((item) => item.done == false)
+
+
+            //在中間插入新的事項
+            setList([...unCheck, { name: newTodo, done: false, time: new Date().getTime() }, ...checked])
+
+        }else{
+
+            //先加入原有的陣列，再放入新的事項
+            setList([ ...list, { name: newTodo, done: false, time: new Date().getTime() } ])
+
+        }
+
 
         //清空輸入框內容
         setTemp('')
