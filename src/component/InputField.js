@@ -12,6 +12,11 @@ function InputField ({ list, setList, listRef, active }){
 
         console.log('newTodo :>>>', newTodo)
 
+        if(!newTodo.length){
+            return alert('請確實輸入')
+        }
+
+
         //如果有改變排序
         if(active){
 

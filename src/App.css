@@ -84,6 +84,15 @@ button{
   scroll-behavior: smooth;
 }
 
+#list::-webkit-scrollbar-thumb{
+  background: #CDD3F5;
+  width: 5px;
+}
+
+#list::-webkit-scrollbar{
+  background: none;
+}
+
 li{
   margin: 3% 0;
   background-color: white;

@@ -34,11 +34,6 @@ function App() {
       console.log('100% :>>>', all)
       console.log('checked :>>>', checked)
 
-      //全部完成的情況
-      if(checked == all){
-        setPercentage(100) 
-      }else     
-
       //全部未完成
       if(checked == 0){
         setPercentage(0)   
@@ -49,7 +44,7 @@ function App() {
         console.log('rougthNumber :>>>', rougthNumber)
 
         //改寫數字
-        setPercentage( 100 * rougthNumber  )   
+        setPercentage( Math.floor(100 * rougthNumber ) )   
       }
     }
 
@@ -75,25 +70,7 @@ function App() {
 
       if(list.length){
         //關閉的情況
-        for(let i=0; i < list.length; i++){
-
-          //先確認下一事項是否存在
-          if( list[i + 1] !== undefined ){
-
-            let current = list[i]
-            let next = list[i + 1]
-
-            //比對建立時間的先後順序，若當前事項的時間大於下一事項
-            if(current.time > next.time){
-
-              //交換位置 (從舊到新)
-              list[i + 1] = current
-
-              list[i] = next
-            }
-          }
-
-        }
+        list.sort((a, b) => { return a.time - b.time })
 
         console.log('back to default :>>>', list)
 
@@ -119,7 +96,7 @@ function App() {
         <ListItem list={list} setList={setList} listRef={listRef}></ListItem>
 
         {/* 排序改變開關 */}
-        <OrderToggle active={active} setActive={setActive}></OrderToggle>
+        <OrderToggle active={active} setActive={setActive} list={list}></OrderToggle>
 
         {/* 輸入框 */}
         <InputField list={list} setList={setList} listRef={listRef} active={active}></InputField>
