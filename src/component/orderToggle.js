@@ -2,7 +2,7 @@ function OrderToggle({ active, setActive, list }) {
 
     const switchToggle = () => {
 
-        if(!list.lenght){
+        if(!list.length){
             return alert('請先新增事項')
         }
 

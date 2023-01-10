@@ -67,9 +67,10 @@ function App() {
       setList([...unCheck, ...checked])
 
     }else{
-
+      //關閉的情況
       if(list.length){
-        //關閉的情況
+       
+        //根據時間先後排序
         list.sort((a, b) => { return a.time - b.time })
 
         console.log('back to default :>>>', list)
@@ -85,7 +86,7 @@ function App() {
 
       <div id="wrapper">
         <header className="App-header">
-          <h2 className='text-heavy'>Todo List</h2>
+          <p className='text-heavy'>Todo List</p>
           <small className='text-light'>add things to do</small>
         </header>    
 
